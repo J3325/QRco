@@ -12,15 +12,41 @@
 
 <body class="bg-white text-black min-h-screen flex items-center justify-center p-6">
     
-  <main class="container border-4 border-black p-6 w-full max-w-md">
-    <h1 class="title">QRco</h1>
-    <p class="subtitle">Paste link or Others -> Generate -> Download.</p>
-    <textarea id="qrInput" placeholder="generate..." class="qr-input"></textarea>
-    <button class="btn" onclick="generateQR()">Generate QR</button>
-    <div id="qrResult" class="qr-result"></div>
-    <button id="downloadBtn" class="btn hidden" onclick="downloadQR()"> Download </button>
-    <p class="footer-text">create by @J3325.</p>
+  <main class="container border-4 border-black p-6 w-full max-w-4xl">
+    <div class="layout-columns">
+
+      <!-- Kolom Kiri: Input -->
+      <div class="col-left">
+        <h1 class="title">QRco</h1>
+        <p class="subtitle">Paste link or Others -> Generate -> Download.</p>
+        <textarea id="qrInput" placeholder="generate..." class="qr-input"></textarea>
+        <div class="shape-selector">
+          <label class="shape-label">Dot Shape:</label>
+          <div class="shape-options">
+            <button class="shape-btn active" data-shape="square" onclick="selectShape(this)">
+              <svg viewBox="0 0 24 24" width="18" height="18"><rect x="4" y="4" width="16" height="16" fill="currentColor"/></svg>
+              Square
+            </button>
+            <button class="shape-btn" data-shape="circle" onclick="selectShape(this)">
+              <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="8" fill="currentColor"/></svg>
+              Circle
+            </button>
+          </div>
+        </div>
+        <button class="btn" onclick="generateQR()">Generate QR</button>
+      </div>
+
+      <!-- Kolom Kanan: QR Result -->
+      <div class="col-right">
+        <p id="helperText" class="helper-text"><span class="helper-desktop">Sini apa yang mau di generate jadi QR?<br>Ketik atau paste di samping ya</span><span class="helper-mobile">Ketik atau paste di atas ya</span></p>
+        <div id="qrResult" class="qr-result"></div>
+        <button id="downloadBtn" class="btn hidden" onclick="downloadQR()">Download</button>
+      </div>
+
+    </div>
   </main>
+
+  <p class="watermark">@j3325</p>
 
   <script src="script.js"></script>
   
